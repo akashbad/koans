@@ -14,7 +14,21 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+	if a<=0 || b<=0 || c<=0
+		raise TriangleError, "Invalid Side Lengths"
+	end
+	if a+b<=c || b+c<=a || c+a<=b
+		raise TriangleError, "The sides are too short"
+	end
+	if a==b || b==c || c==a
+		if a==b && b==c
+			:equilateral
+		else
+			:isosceles
+		end
+	else
+		:scalene
+	end
 end
 
 # Error class used in part 2.  No need to change this code.
